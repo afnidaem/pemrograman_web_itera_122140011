@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registrasi</title>
+    <style>
+        /* Styling umum */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+    
+        /* Container form */
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px; /* Lebar lebih proporsional */
+        }
+    
+        /* Judul form */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    
+        /* Label */
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+            color: #444;
+        }
+    
+        /* Input field */
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease-in-out;
+        }
+    
+        /* Fokus pada input */
+        input:focus {
+            border-color: blue;
+            outline: none;
+        }
+    
+        /* Error message */
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none; /* Sembunyikan awalnya */
+            margin-top: 5px;
+        }
+    
+        /* Tombol Submit */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease-in-out, transform 0.2s;
+        }
+    
+        /* Efek hover pada tombol */
+        button:hover {
+            background-color: darkblue;
+            transform: scale(1.02);
+        }
+    
+        /* Responsif untuk layar kecil */
+        @media (max-width: 400px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+    
+<body>
+    <div class="container">
+        <h2>Form Registrasi</h2>
+        <form id="myForm">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name">
+            <div class="error" id="nameError">Nama harus terdiri dari minimal 3 karakter</div>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <div class="error" id="emailError">Email tidak valid</div>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <div class="error" id="passwordError">Password harus terdiri dari minimal 8 karakter</div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

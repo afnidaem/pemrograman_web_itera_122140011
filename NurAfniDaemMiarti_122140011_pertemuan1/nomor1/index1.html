@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
+        ul { list-style: none; padding: 0; }
+        .task-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin: 10px auto;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .done { text-decoration: line-through; color: gray; }
+        .task-content { display: flex; align-items: center; flex-grow: 1; }
+        .task-content span { margin-left: 10px; font-weight: bold; }
+        .task-actions { display: flex; gap: 15px; margin-left: 10px; }
+        .edit-input { flex-grow: 1; }
+        button { cursor: pointer; color: white; border: none; padding: 5px 10px; border-radius: 5px; }
+        .delete-button, .cancel-button { background: red; }
+        .delete-button:hover, .cancel-button:hover { background: darkred; }
+        .save-button, .edit-button { background: green; }
+        .save-button:hover, .edit-button:hover { background: darkgreen; }
+        .add-button, #toggleAll, #deleteAll { background: blue; }
+        .add-button:hover, #toggleAll:hover, #deleteAll:hover { background: darkblue; }
+    </style>
+</head>
+<body>
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Tambahkan tugas">
+    <button class="add-button" onclick="addTask()">Tambah</button>
+    <button id="toggleAll" onclick="toggleAllTasks()">Selesai Semua</button>
+    <button id="deleteAll" onclick="deleteAllTasks()">Hapus Semua</button>
+    <ul id="taskList"></ul>
+    
+    <script src="script1.js"></script>
+</body>
+</html>
