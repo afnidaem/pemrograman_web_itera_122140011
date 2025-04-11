@@ -1,0 +1,163 @@
+<!DOCTYPE html> 
+<html lang="id"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>Aplikasi Manajemen Keuangan</title> 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google API Client Library -->
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://accounts.google.com/gsi/client"></script>
+</head> 
+<body class="bg-gray-50 min-h-screen"> 
+ 
+  <!-- Navbar --> 
+  <nav class="bg-white shadow-md"> 
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+      <div class="flex justify-between h-16 items-center"> 
+        <!-- Logo --> 
+        <div class="flex items-center"> 
+          <span class="text-xl font-bold text-blue-600">Monefy</span> 
+        </div> 
+         
+        <!-- Navigation Menu --> 
+        <div class="flex space-x-6"> 
+          <a href="#akun-dompet" class="text-gray-700 hover:text-blue-600 font-medium">Akun Dompet</a> 
+          <a href="#transaksi" class="text-gray-700 hover:text-blue-600 font-medium">Transaksi</a> 
+          <a href="#pengingat" class="text-gray-700 hover:text-blue-600 font-medium">Pengingat</a> 
+        </div> 
+      </div> 
+    </div> 
+  </nav> 
+ 
+  <!-- Section: Akun Dompet --> 
+  <section id="akun-dompet" class="p-6 max-w-7xl mx-auto"> 
+    <div class="flex justify-between items-center mb-4"> 
+        <h2 class="text-2xl font-bold text-gray-800">Akun Dompet</h2> 
+        <button id="btn-create-dompet" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"> 
+            + Tambah Akun Dompet 
+        </button> 
+    </div> 
+ 
+    <!-- Formulir untuk membuat dompet baru (Hidden by default) --> 
+    <form id="form-create-dompet" class="space-y-4 mb-6 hidden bg-white p-4 rounded-lg shadow"> 
+        <div> 
+            <label for="nama-dompet" class="block text-gray-700">Nama Akun Dompet:</label> 
+            <input type="text" id="nama-dompet" name="nama-dompet" required class="w-full p-2 mt-2 border border-gray-300 rounded-lg" placeholder="Masukkan nama akun dompet"> 
+        </div> 
+ 
+        <div> 
+            <label for="saldo-awal" class="block text-gray-700">Saldo Awal:</label> 
+            <input type="number" id="saldo-awal" name="saldo-awal" required class="w-full p-2 mt-2 border border-gray-300 rounded-lg" placeholder="Masukkan saldo awal" min="0"> 
+        </div> 
+ 
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-400 transition">Buat Dompet</button> 
+    </form> 
+ 
+    <!-- Daftar Dompet --> 
+    <div id="daftar-dompet" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"> 
+        <!-- Dompet akan ditambahkan di sini oleh JavaScript --> 
+    </div> 
+  </section>
+
+  <!-- Section: Transaksi -->
+  <section id="transaksi" class="p-6 max-w-7xl mx-auto mt-8 bg-white rounded-lg shadow-md">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-gray-800">Transaksi</h2>
+        <button id="btn-create-transaction" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+            + Tambah Transaksi
+        </button>
+    </div>
+
+    <!-- Formulir untuk membuat transaksi baru (Hidden by default) -->
+    <div id="transaction-form-container" class="hidden">
+        <!-- Form akan dirender melalui JavaScript -->
+    </div>
+
+    <!-- Daftar Transaksi -->
+    <div id="daftar-transaksi">
+        <!-- Transaksi akan ditambahkan di sini oleh JavaScript -->
+    </div>
+  </section>
+
+  <!-- Section: Pengingat -->
+  <section id="pengingat" class="p-6 max-w-7xl mx-auto mt-8 bg-white rounded-lg shadow-md">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-gray-800">Pengingat Pembayaran</h2>
+        <div class="flex space-x-2">
+            <button id="btn-authorize" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg hidden">
+                Hubungkan Google Calendar
+            </button>
+            <button id="btn-signout" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg hidden">
+                Keluar dari Google
+            </button>
+            <button id="btn-create-reminder" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                + Tambah Pengingat
+            </button>
+        </div>
+    </div>
+
+    <!-- Status API Google Calendar -->
+    <div id="google-api-status" class="mb-4 p-4 bg-yellow-100 text-yellow-800 rounded-lg hidden">
+        Silakan hubungkan dengan Google Calendar untuk mengaktifkan fitur pengingat.
+    </div>
+
+    <!-- Formulir untuk membuat pengingat baru (Hidden by default) -->
+    <div id="reminder-form-container" class="space-y-4 mb-6 hidden bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <form id="form-create-reminder" class="space-y-4">
+            <div>
+                <label for="reminder-title" class="block text-gray-700">Judul Pengingat:</label>
+                <input type="text" id="reminder-title" name="reminder-title" required class="w-full p-2 mt-2 border border-gray-300 rounded-lg" placeholder="Contoh: Bayar Tagihan Listrik">
+            </div>
+
+            <div>
+                <label for="reminder-amount" class="block text-gray-700">Jumlah Pembayaran:</label>
+                <input type="number" id="reminder-amount" name="reminder-amount" required class="w-full p-2 mt-2 border border-gray-300 rounded-lg" placeholder="Masukkan jumlah yang harus dibayar" min="0">
+            </div>
+
+            <div>
+                <label for="reminder-date" class="block text-gray-700">Tanggal Jatuh Tempo:</label>
+                <input type="date" id="reminder-date" name="reminder-date" required class="w-full p-2 mt-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div>
+                <label for="reminder-time" class="block text-gray-700">Waktu Pengingat:</label>
+                <input type="time" id="reminder-time" name="reminder-time" required class="w-full p-2 mt-2 border border-gray-300 rounded-lg" value="09:00">
+            </div>
+
+            <div>
+                <label for="reminder-notification" class="block text-gray-700">Notifikasi:</label>
+                <select id="reminder-notification" name="reminder-notification" class="w-full p-2 mt-2 border border-gray-300 rounded-lg">
+                    <option value="30">30 menit sebelumnya</option>
+                    <option value="60">1 jam sebelumnya</option>
+                    <option value="1440">1 hari sebelumnya</option>
+                    <option value="10080">1 minggu sebelumnya</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="reminder-notes" class="block text-gray-700">Catatan:</label>
+                <textarea id="reminder-notes" name="reminder-notes" rows="3" class="w-full p-2 mt-2 border border-gray-300 rounded-lg" placeholder="Tambahkan catatan untuk pengingat ini"></textarea>
+            </div>
+
+            <div class="flex space-x-2">
+                <button type="submit" class="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-400 transition">Simpan Pengingat</button>
+                <button type="button" id="cancel-reminder" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Batal</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Daftar Pengingat -->
+    <div id="daftar-pengingat" class="grid grid-cols-1 gap-4">
+        <!-- Pengingat akan ditambahkan di sini oleh JavaScript -->
+        <div class="text-center text-gray-500 py-8 hidden" id="empty-reminder-message">
+            Belum ada pengingat pembayaran. Tambahkan pengingat baru untuk mengelola pembayaran rutin Anda.
+        </div>
+    </div>
+  </section>
+   
+  <script type="module" src="app.js"></script>
+  <script type="module" src="./js/reminder.js"></script>
+ 
+</body> 
+</html>
