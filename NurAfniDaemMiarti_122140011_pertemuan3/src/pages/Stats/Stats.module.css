@@ -1,0 +1,453 @@
+.statsPage {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.statsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.statsHeader h2 {
+  color: #2d3748;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.statsHeader h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background-color: #3498db;
+  border-radius: 2px;
+}
+
+.totalBooks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.totalBookCount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  line-height: 1;
+}
+
+.totalBookLabel {
+  font-size: 0.875rem;
+  color: #718096;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.statsSummary {
+  margin-bottom: 2.5rem;
+}
+
+.progressCharts {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.circleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.circle {
+  margin-bottom: 0.5rem;
+}
+
+.circleProgress {
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.circleText {
+  font-size: 1.25rem;
+  font-weight: 700;
+  fill: #2d3748;
+}
+
+.circleLabel {
+  font-size: 0.875rem;
+  color: #4a5568;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.statCard {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.statIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.25rem;
+  flex-shrink: 0;
+}
+
+.statIcon span {
+  font-size: 1.75rem;
+}
+
+.statInfo {
+  flex-grow: 1;
+}
+
+.statInfo h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.statPercentage {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: #f8fafc;
+  border-radius: 0.75rem;
+  border: 1px dashed #cbd5e0;
+  text-align: center;
+}
+
+.emptyState::before {
+  content: '📊';
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emptyState p {
+  font-size: 1.125rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  max-width: 80%;
+}
+
+.addBookButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addBookButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.authorsSection {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.authorsSection h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 0.75rem;
+  position: relative;
+}
+
+.authorsSection h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  border-radius: 1.5px;
+}
+
+.authorChartContainer {
+  padding: 0.5rem;
+}
+
+.authorChart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.authorBar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.authorRank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: #edf2f7;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 0.875rem;
+}
+
+.authorName {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.barContainer {
+  position: relative;
+  height: 2rem;
+  background-color: #edf2f7;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  margin-left: 2.5rem;
+}
+
+.barFill {
+  height: 100%;
+  background-color: #3498db;
+  border-radius: 0.25rem;
+  transition: width 1s ease-in-out;
+}
+
+.authorCount {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.tipSection {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+}
+
+.tipSection h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 0.75rem;
+  position: relative;
+}
+
+.tipSection h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  border-radius: 1.5px;
+}
+
+.tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tip {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.tip:hover {
+  transform: translateY(-3px);
+}
+
+.tipIcon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.tipContent h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.tipContent p {
+  font-size: 0.875rem;
+  color: #718096;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .statsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .totalBooks {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .totalBookCount {
+    font-size: 2rem;
+  }
+  
+  .progressCharts {
+    justify-content: center;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tips {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .statsPage {
+    padding: 1rem;
+  }
+  
+  .statCard {
+    padding: 1rem;
+  }
+  
+  .statIcon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+  }
+  
+  .statIcon span {
+    font-size: 1.5rem;
+  }
+  
+  .statNumber {
+    font-size: 1.75rem;
+  }
+  
+  .circleContainer svg {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .circleText {
+    font-size: 1rem;
+  }
+  
+  .emptyState {
+    padding: 2rem 1rem;
+  }
+  
+  .emptyState::before {
+    font-size: 3rem;
+  }
+  
+  .emptyState p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,385 @@
+.bookItem {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bookItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+.bookItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.bookItem:hover::before {
+  width: 6px;
+}
+
+.bookContent {
+  margin-bottom: 1rem;
+}
+
+.bookTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  color: #2c3e50;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.bookAuthor {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.875rem;
+  color: #64748b;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+}
+
+.bookAuthor::before {
+  content: '✒️';
+  margin-right: 0.375rem;
+  font-size: 0.75rem;
+}
+
+.bookStatus {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.statusOwned {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border: 1px solid #bbdefb;
+}
+
+.statusReading {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.statusToBuy {
+  background-color: #fff8e1;
+  color: #f57f17;
+  border: 1px solid #ffecb3;
+}
+
+.bookActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.625rem;
+  margin-top: auto;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.5rem 0.875rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editButton {
+  background-color: #3498db;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.editButton:active {
+  transform: translateY(1px);
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.deleteButton:active {
+  transform: translateY(1px);
+}
+
+/* Style for delete confirmation */
+.confirmDelete {
+  background-color: #fff5f5;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #fed7d7;
+  margin-top: 0.75rem;
+}
+
+.confirmDelete p {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.confirmButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.confirmButton {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.confirmButton:hover {
+  background-color: #c53030;
+}
+
+.cancelButton {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #cbd5e0;
+}
+
+/* Animation for deleting */
+.deleting {
+  animation: fadeOut 0.5s forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+@media (max-width: 640px) {
+  .bookItem {
+    padding: 1rem;
+  }
+  
+  .bookTitle {
+    font-size: 1rem;
+  }
+  
+  .bookActions {
+    flex-direction: column;
+  }
+  
+  .editButton, 
+  .deleteButton {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .confirmButtons {
+    flex-direction: column;
+  }
+}.bookItem {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bookItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+.bookItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.bookItem:hover::before {
+  width: 6px;
+}
+
+.bookContent {
+  margin-bottom: 1rem;
+}
+
+.bookTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  color: #2c3e50;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.bookAuthor {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.875rem;
+  color: #64748b;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+}
+
+.bookAuthor::before {
+  content: '✒️';
+  margin-right: 0.375rem;
+  font-size: 0.75rem;
+}
+
+.bookStatus {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.statusOwned {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border: 1px solid #bbdefb;
+}
+
+.statusReading {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.statusToBuy {
+  background-color: #fff8e1;
+  color: #f57f17;
+  border: 1px solid #ffecb3;
+}
+
+.bookActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.625rem;
+  margin-top: auto;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.5rem 0.875rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editButton {
+  background-color: #3498db;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.editButton:active {
+  transform: translateY(1px);
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.deleteButton:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .bookItem {
+    padding: 1rem;
+  }
+  
+  .bookTitle {
+    font-size: 1rem;
+  }
+  
+  .bookActions {
+    flex-direction: column;
+  }
+  
+  .editButton, 
+  .deleteButton {
+    width: 100%;
+    text-align: center;
+  }
+}

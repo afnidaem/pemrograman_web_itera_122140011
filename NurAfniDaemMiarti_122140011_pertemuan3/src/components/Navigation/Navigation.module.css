@@ -1,0 +1,133 @@
+.navigation {
+  background-color: #2c3e50;
+  background-image: linear-gradient(to right, #2c3e50, #3498db);
+  color: white;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 1rem 0;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.05em;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.logo h1::before {
+  content: '📚';
+  margin-right: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.logo h1:hover {
+  transform: scale(1.05);
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navLink,
+.activeLink {
+  color: white;
+  text-decoration: none;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navLink::after,
+.activeLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #3498db;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navLink:hover::after {
+  width: 40%;
+}
+
+.activeLink {
+  font-weight: 700;
+}
+
+.activeLink::after {
+  width: 60%;
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    padding: 0 1rem;
+  }
+  
+  .logo h1 {
+    font-size: 1.25rem;
+  }
+  
+  .navLink,
+  .activeLink {
+    padding: 1.25rem 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navigation {
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+  }
+  
+  .logo {
+    margin-bottom: 0.5rem;
+  }
+  
+  .logo h1 {
+    padding: 0.5rem 0;
+  }
+  
+  .navLinks {
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .navLink,
+  .activeLink {
+    padding: 0.75rem;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+  }
+}

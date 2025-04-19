@@ -1,0 +1,128 @@
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.filterContainer:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.searchBox {
+  flex-grow: 1;
+  position: relative;
+}
+
+.searchBox::before {
+  content: '🔍';
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+  color: #2d3748;
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+  background-color: #fff;
+}
+
+.filterBox {
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+}
+
+.filterLabel {
+  margin-right: 0.75rem;
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.filterSelect {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  background-color: transparent;
+  color: #2d3748;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  min-width: 130px;
+}
+
+.filterSelect:focus {
+  outline: none;
+  background-color: #edf2f7;
+}
+
+.filterSelect option {
+  background-color: #fff;
+  color: #2d3748;
+}
+
+@media (max-width: 768px) {
+  .filterContainer {
+    padding: 0.875rem;
+  }
+  
+  .searchInput,
+  .filterSelect {
+    font-size: 0.875rem;
+    padding: 0.625rem;
+  }
+  
+  .searchInput {
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .filterContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .filterBox {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .searchBox::before {
+    font-size: 0.75rem;
+  }
+}

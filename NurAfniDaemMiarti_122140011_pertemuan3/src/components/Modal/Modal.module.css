@@ -1,0 +1,115 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(4px);
+  padding: 1.5rem;
+}
+
+.modalContent {
+  position: relative;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 95%;
+  max-height: 95%;
+  overflow: auto;
+  animation: slideIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: #94a3b8;
+  padding: 0.25rem;
+  line-height: 0.9;
+  z-index: 2;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.closeButton:hover {
+  color: #1e293b;
+  background-color: #f1f5f9;
+  transform: rotate(90deg);
+}
+
+.closeButton:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .modalBackdrop {
+    padding: 1rem;
+    align-items: flex-end;
+  }
+  
+  .modalContent {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    max-height: 90%;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modalBackdrop {
+    padding: 0.5rem;
+  }
+  
+  .closeButton {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.5rem;
+  }
+}
