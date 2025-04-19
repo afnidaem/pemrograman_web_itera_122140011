@@ -11,6 +11,13 @@ Aplikasi ini dirancang untuk membantu pengguna dalam:
 - **Pencarian Buku**: Pengguna dapat mencari buku dengan kata kunci tertentu.
 
 ## Instruksi Instalasi dan Menjalankan Aplikasi
+### Prasyarat
+
+Sebelum mulai, pastikan Anda telah menginstal **Node.js** dan **npm** (Node Package Manager) di komputer Anda. Anda dapat memeriksa apakah keduanya sudah terinstal dengan menjalankan perintah berikut di terminal:
+
+```bash
+node -v
+npm -v
 
 ## Screenshots Antarmuka
 
