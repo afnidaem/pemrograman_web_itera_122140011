@@ -1,6 +1,6 @@
-# Personal Book Management App
+# MyLibrare App
 
-**Personal Book Management** adalah aplikasi berbasis web yang memungkinkan pengguna untuk mengelola koleksi buku mereka secara efisien. Pengguna dapat mencatat buku yang dimiliki, sedang dibaca, atau ingin dibeli, serta melakukan berbagai operasi seperti menambah, mengedit, dan menghapus buku. Aplikasi ini juga menyediakan fitur pencarian dan filter untuk memudahkan pengguna dalam menemukan buku sesuai dengan statusnya.
+**MyLibrare App** adalah aplikasi berbasis web yang memungkinkan pengguna untuk mengelola koleksi buku mereka secara efisien. Pengguna dapat mencatat buku yang dimiliki, sedang dibaca, atau ingin dibeli, serta melakukan berbagai operasi seperti menambah, mengedit, dan menghapus buku. Aplikasi ini juga menyediakan fitur pencarian dan filter untuk memudahkan pengguna dalam menemukan buku sesuai dengan statusnya.
 
 ## Deskripsi Aplikasi
 
